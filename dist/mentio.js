@@ -354,11 +354,11 @@ angular.module('mentio', [])
 
                 scope.$watch(
                     'ngModel',
-                    function (newValue) {
-                        /*jshint maxcomplexity:14 */
+                    function (newValue, oldValue) {
+                        /*jshint maxcomplexity:15 */
                         /*jshint maxstatements:39 */
                         // yes this function needs refactoring
-                        if ((!newValue || newValue === '') && !scope.isActive()) {
+                        if ((!newValue || newValue === '' || newValue === oldValue) && !scope.isActive()) {
                             // ignore while setting up
                             return;
                         }
